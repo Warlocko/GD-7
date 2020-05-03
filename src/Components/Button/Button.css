@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'NunitoSans';
+    src: local('NunitoSans'), url(../../Fonts/NunitoSans-Regular.ttf) format('truetype');
+  }
+
+.filterBtn{
+    padding: 10px;
+    width: 200px;
+    font-family: 'NunitoSans';
+    border: 1px #1724ab solid;
+    margin-right: 10px;
+}

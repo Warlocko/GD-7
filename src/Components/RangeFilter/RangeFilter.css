@@ -1,0 +1,44 @@
+.rangeFilterWrapper{
+    width: 620px;
+    margin-top: 20px;
+    margin-left: 8%;
+}
+
+.titleBox{
+    display: flex;
+}
+
+.title{
+    font-family: 'NunitoSansBold';
+    margin-bottom: 5px;
+}
+
+.tooltip{
+    width: 15px;
+    height: 15px;
+    margin-top: 19px;
+    margin-left: 10px;
+}
+
+.max{
+    position: absolute;
+    right: 100px;
+}
+
+.right{
+    position: relative;
+    margin-left: 90%;
+}
+
+.rc-slider-track{
+    background-color: #1724ab !important;
+}
+
+.rc-slider-handle{
+    background-color: #1724ab !important;
+    border: #1724ab !important;
+}
+
+.rc-slider-handle-dragging {
+    box-shadow: 0 0 0 5px #1724ab !important;
+  }

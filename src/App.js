@@ -23,8 +23,12 @@ import excelente from './Images/Corte/excelente.png'
 import muyBueno from './Images/Corte/muy-bueno.png'
 import bueno from './Images/Corte/bueno.png'
 import regular from './Images/Corte/regular.png'
+import quilatajeBajo from './Images/Quilataje/pequeno.png'
+import quilatajeAlto from './Images/Quilataje/grande.png'
 import './App.css';
 import ButtonFilter from './Components/ButtonFilter/ButtonFilter'
+import RangeFilter from './Components/RangeFilter/RangeFilter';
+import Button from './Components/Button/Button'
 
 function App() {
   return (
@@ -57,8 +61,14 @@ function App() {
         {src: muyBueno, label: "MUY BUENO (MUY BRILLANTE)"},
         {src: bueno, label: "BUENO (BRILLANTE)"},
         {src: regular, label: "REGULAR (POCO BRILLANTE)"},]} tooltip="Elige la claridad del diamante que buscas."></ButtonFilter>
+        <RangeFilter title="QUILATAJE" tooltip="Elige el rango de quilataje." from={0} to={30} imageFrom={quilatajeBajo} imageTo={quilatajeAlto}></RangeFilter>
+        <RangeFilter title="PRECIO" tooltip="Elige el rango de precio." from={0} to={5000000} imageFrom="" imageTo=""></RangeFilter>
       </div>
-    </div>
+      </div>
+        <div className="buttonWrapper">
+          <Button label="BUSCAR" color="#1724ab" textColor="#FFFFFF"></Button>
+          <Button label="LIMPIAR FILTROS" color='#FFFFFF' textColor="#1724ab"></Button>
+        </div>
     </>
     );
 }
