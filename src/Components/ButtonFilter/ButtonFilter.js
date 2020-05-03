@@ -9,8 +9,22 @@ class ButtonFilter extends React.Component {
         this.state = {
             title: this.props.title,
             buttons: this.props.buttons,
-            tooltip: this.props.tooltip
+            tooltip: this.props.tooltip,
+            selected: "REDONDO"
         }
+    }
+
+    onSelected = (label) =>{
+        this.setState({selected: label})
+        
+    }
+
+    getSelected(){
+        return this.state.selected
+    }
+
+    limpiar(){
+        this.setState({selected: ""})
     }
 
     render(){
@@ -22,7 +36,7 @@ class ButtonFilter extends React.Component {
                 </div>
                 <div className={`buttons ${this.state.buttons.length>4 ? "small":"large"}`}>
                 {this.state.buttons.map((button) => (
-                    <ButtonImg src={button.src} label={button.label}/>
+                    <ButtonImg src={button.src} label={button.label} onSelect={this.onSelected} selected={this.state.selected}/>
                 ))}
                 </div>
             </div>

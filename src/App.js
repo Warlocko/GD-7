@@ -30,47 +30,78 @@ import ButtonFilter from './Components/ButtonFilter/ButtonFilter'
 import RangeFilter from './Components/RangeFilter/RangeFilter';
 import Button from './Components/Button/Button'
 
-function App() {
-  return (
-    <>
-    <div className="pageWrapper">
-      <div className="columnWrapper">
-        <ButtonFilter title="FORMA" buttons={[{src: redondo, label: "REDONDO"},
-        {src: princesa, label: "PRINCESA"},
-        {src: esmeralda, label: "ESMERALDA"},
-        {src: ovalo, label: "ÓVALO"},
-        {src: marquesa, label: "MARQUESA"},
-        {src: pera, label: "PERA"},
-        {src: asscher, label: "ASSCHER"},
-        {src: corazon, label: "CORAZÓN"},
-        {src: cojin, label: "COJÍN"},
-        {src: baguette, label: "BAGUETTE"},
-        {src: trillon, label: "TRILLÓN"},
-        {src: radiante, label: "RADIANTE"}]} tooltip="Elige la imagen que mejor describe la forma del diamante que buscas."></ButtonFilter>
-        <ButtonFilter title="COLOR" buttons={[{src: incoloro, label: "TRANSPARENTE"},
-        {src: casiIncoloro, label: "CASI INCOLORO"},
-        {src: ligeramenteAmarillo, label: "LIGERAMENTE AMARILLO"},
-        {src: amarilloClaro, label: "AMARILLO CLARO"},]} tooltip="Elige el color del diamante que buscas."></ButtonFilter>
-        <ButtonFilter title="CLARIDAD" buttons={[{src: perfecta, label: "PERFECTA"},
-        {src: noVisibles, label: "IMPERFECCIONES NO VISIBLES"},
-        {src: imperfecciones10x, label: "IMPERFECCIONES VISIBLES A 10X"},
-        {src: imperfeccionesSimpleVista, label: "IMPERFECCIONES VISIBLES A SIMPLE VISTA"},]} tooltip="Elige la claridad del diamante que buscas."></ButtonFilter>
-      </div>
-      <div className="columnWrapper">
-        <ButtonFilter title="CORTE" buttons={[{src: excelente, label: "EXCELENTE (MÁXIMO BRILLO)"},
-        {src: muyBueno, label: "MUY BUENO (MUY BRILLANTE)"},
-        {src: bueno, label: "BUENO (BRILLANTE)"},
-        {src: regular, label: "REGULAR (POCO BRILLANTE)"},]} tooltip="Elige la claridad del diamante que buscas."></ButtonFilter>
-        <RangeFilter title="QUILATAJE" tooltip="Elige el rango de quilataje." from={0} to={30} imageFrom={quilatajeBajo} imageTo={quilatajeAlto}></RangeFilter>
-        <RangeFilter title="PRECIO" tooltip="Elige el rango de precio." from={0} to={5000000} imageFrom="" imageTo=""></RangeFilter>
-      </div>
-      </div>
-        <div className="buttonWrapper">
-          <Button label="BUSCAR" color="#1724ab" textColor="#FFFFFF"></Button>
-          <Button label="LIMPIAR FILTROS" color='#FFFFFF' textColor="#1724ab"></Button>
+class App extends React.Component {
+  constructor(props){
+    super(props)
+    this.forma = React.createRef();
+    this.color = React.createRef();
+    this.claridad = React.createRef();
+    this.corte = React.createRef();
+    this.quilataje = React.createRef();
+    this.precio = React.createRef();
+  }
+
+  buscar = () => {
+    console.log({
+      forma: this.forma.current.getSelected(),
+      color: this.color.current.getSelected(),
+      claridad: this.claridad.current.getSelected(),
+      corte: this.corte.current.getSelected(),
+      quilataje: this.quilataje.current.getSelected(),
+      precio: this.precio.current.getSelected()})
+  }
+
+  limpiar = () => {
+      this.forma.current.limpiar()
+      this.color.current.limpiar()
+      this.claridad.current.limpiar()
+      this.corte.current.limpiar()
+      this.quilataje.current.limpiar()
+      this.precio.current.limpiar()
+  }
+
+  render() {
+    return (
+      <>
+        <div className="pageWrapper">
+          <div className="columnWrapper">
+            <ButtonFilter ref={this.forma} title="FORMA" buttons={[{ src: redondo, label: "REDONDO" },
+            { src: princesa, label: "PRINCESA" },
+            { src: esmeralda, label: "ESMERALDA" },
+            { src: ovalo, label: "ÓVALO" },
+            { src: marquesa, label: "MARQUESA" },
+            { src: pera, label: "PERA" },
+            { src: asscher, label: "ASSCHER" },
+            { src: corazon, label: "CORAZÓN" },
+            { src: cojin, label: "COJÍN" },
+            { src: baguette, label: "BAGUETTE" },
+            { src: trillon, label: "TRILLÓN" },
+            { src: radiante, label: "RADIANTE" }]} tooltip="Elige la imagen que mejor describe la forma del diamante que buscas."></ButtonFilter>
+            <ButtonFilter ref={this.color} title="COLOR" buttons={[{ src: incoloro, label: "TRANSPARENTE" },
+            { src: casiIncoloro, label: "CASI INCOLORO" },
+            { src: ligeramenteAmarillo, label: "LIGERAMENTE AMARILLO" },
+            { src: amarilloClaro, label: "AMARILLO CLARO" },]} tooltip="Elige el color del diamante que buscas."></ButtonFilter>
+            <ButtonFilter ref={this.claridad} title="CLARIDAD" buttons={[{ src: perfecta, label: "PERFECTA" },
+            { src: noVisibles, label: "IMPERFECCIONES NO VISIBLES" },
+            { src: imperfecciones10x, label: "IMPERFECCIONES VISIBLES A 10X" },
+            { src: imperfeccionesSimpleVista, label: "IMPERFECCIONES VISIBLES A SIMPLE VISTA" },]} tooltip="Elige la claridad del diamante que buscas."></ButtonFilter>
+          </div>
+          <div className="columnWrapper">
+            <ButtonFilter ref={this.corte} title="CORTE" buttons={[{ src: excelente, label: "EXCELENTE (MÁXIMO BRILLO)" },
+            { src: muyBueno, label: "MUY BUENO (MUY BRILLANTE)" },
+            { src: bueno, label: "BUENO (BRILLANTE)" },
+            { src: regular, label: "REGULAR (POCO BRILLANTE)" },]} tooltip="Elige la claridad del diamante que buscas."></ButtonFilter>
+            <RangeFilter ref={this.quilataje} title="QUILATAJE" tooltip="Elige el rango de quilataje." from={0} to={30} imageFrom={quilatajeBajo} imageTo={quilatajeAlto}></RangeFilter>
+            <RangeFilter ref={this.precio} title="PRECIO" tooltip="Elige el rango de precio." from={0} to={5000000} imageFrom="" imageTo=""></RangeFilter>
+          </div>
         </div>
-    </>
-    );
+        <div className="buttonWrapper">
+          <Button label="BUSCAR" color="#1724ab" textColor="#FFFFFF" onClick={this.buscar}></Button>
+          <Button label="LIMPIAR FILTROS" color='#FFFFFF' textColor="#1724ab" onClick={this.limpiar}></Button>
+        </div>
+      </>
+    )
+  }
 }
 
 export default App;

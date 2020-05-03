@@ -19,7 +19,6 @@ class RangeFilter extends React.Component {
     }
 
     onSliderChange = (value) =>{
-      console.log(value);
       this.setState({
         value,
       });
@@ -29,7 +28,8 @@ class RangeFilter extends React.Component {
       return this.state.value
     }
 
-    reset(){
+
+    limpiar(){
       this.setState({ value:[this.state.from, this.state.to]});
     }
 

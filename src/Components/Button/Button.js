@@ -13,7 +13,7 @@ class Button extends React.Component{
 
     render(){
         return (
-            <button style={{backgroundColor: this.state.color, color: this.state.textColor}} className="filterBtn">{this.state.label}</button>
+            <button onClick={this.props.onClick} style={{backgroundColor: this.state.color, color: this.state.textColor}} className="filterBtn">{this.state.label}</button>
         )
     }
 }
