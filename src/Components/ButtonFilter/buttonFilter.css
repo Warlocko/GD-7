@@ -1,0 +1,58 @@
+@font-face {
+    font-family: 'NunitoSans';
+    src: local('NunitoSans'), url(../../Fonts/NunitoSans-Regular.ttf) format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'NunitoSansBold';
+    src: local('NunitoSansBold'), url(../../Fonts/NunitoSans-Bold.ttf) format('truetype');
+  }
+
+.buttonFilterWrapper{
+    width: 650px;
+    margin-left: -325px;
+    padding-left: 50%;
+}
+
+.titleBox{
+    display: flex;
+}
+
+.title{
+    font-family: 'NunitoSansBold';
+    margin-bottom: 5px;
+}
+
+.tooltip{
+    width: 15px;
+    height: 15px;
+    margin-top: 19px;
+    margin-left: 10px;
+}
+
+
+.buttons{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.small{
+    height: 150px;
+}
+
+.small .button{
+    width: 15.6667%;
+    height: 50%;
+}
+
+.large{
+    height: 75px;
+}
+
+.large .button{
+    width: 23.6%;
+}
+
+.button{
+    margin: 0;
+}

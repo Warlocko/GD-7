@@ -1,0 +1,25 @@
+@font-face {
+    font-family: 'NunitoSans';
+    src: local('NunitoSans'), url(../../Fonts/NunitoSans-Regular.ttf) format('truetype');
+  }
+
+.buttonImage{
+    width: 40px;
+    height: 40px;
+    margin-top: 10px;
+    margin-left: -20px;
+    padding-left: 50%;
+}
+
+.buttonLabel{
+    font-family: 'NunitoSans';
+    font-size: 12px;
+    width: 100%;
+    text-align: center;
+}
+
+.button{
+    border: 1px;
+    border-color: black;
+    border-style: solid;
+}
