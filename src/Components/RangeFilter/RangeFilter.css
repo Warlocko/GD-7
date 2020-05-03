@@ -13,6 +13,23 @@
     margin-bottom: 5px;
 }
 
+.tooltipDiv{
+    position: relative;
+}
+
+.tooltipText{
+    font-family: 'NunitoSans';
+    display: none;
+    position: absolute;
+    width: 500px;
+    top: 0;
+    left: 30px;
+}
+
+.tooltipDiv:hover .tooltipText{
+    display: block;
+}
+
 .tooltip{
     width: 15px;
     height: 15px;

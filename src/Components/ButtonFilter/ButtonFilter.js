@@ -4,7 +4,7 @@ import ButtonImg from '../ButtonImage/ButtonImg'
 import tooltip from '../../Images/TooltipIcon.png'
 
 class ButtonFilter extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props)
         this.state = {
             title: this.props.title,
@@ -14,30 +14,33 @@ class ButtonFilter extends React.Component {
         }
     }
 
-    onSelected = (label) =>{
-        this.setState({selected: label})
-        
+    onSelected = (label) => {
+        this.setState({ selected: label })
+
     }
 
-    getSelected(){
+    getSelected() {
         return this.state.selected
     }
 
-    limpiar(){
-        this.setState({selected: ""})
+    limpiar() {
+        this.setState({ selected: "" })
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <div className="buttonFilterWrapper">
                 <div className="titleBox">
                     <p className="title">{this.state.title}</p>
-                    <img className="tooltip" src={tooltip}></img>
+                    <div className="tooltipDiv">
+                        <img className="tooltip" src={tooltip}></img>
+                        <p className="tooltipText">{this.state.tooltip}</p>
+                    </div>
                 </div>
-                <div className={`buttons ${this.state.buttons.length>4 ? "small":"large"}`}>
-                {this.state.buttons.map((button) => (
-                    <ButtonImg src={button.src} label={button.label} onSelect={this.onSelected} selected={this.state.selected}/>
-                ))}
+                <div className={`buttons ${this.state.buttons.length > 4 ? "small" : "large"}`}>
+                    {this.state.buttons.map((button) => (
+                        <ButtonImg src={button.src} label={button.label} onSelect={this.onSelected} selected={this.state.selected} />
+                    ))}
                 </div>
             </div>
         )
